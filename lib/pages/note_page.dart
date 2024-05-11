@@ -23,9 +23,6 @@ class _NotePageState extends State<NotePage> {
   String mainNote = 'Start typing here...';
   SpeechToText speechToText = SpeechToText();
   var isListening = false;
-  int port = 5321;
-  String html = '';
-  LocalServer? localServer;
   void checkMic() async {
     bool micAvailable = await speechToText.initialize();
 
@@ -104,7 +101,6 @@ class _NotePageState extends State<NotePage> {
           ),
           Row(
             children: [
-              Text(controller.textSpeech.value),
               GestureDetector(
                 onTap: () async {
                   if (!isListening) {
